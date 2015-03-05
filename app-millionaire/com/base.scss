@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700&subset=latin,cyrillic);
+
 * {
   padding: 0;
   margin: 0;
@@ -9,8 +11,8 @@ html, body {
 
 body {
   background-color: #000;
-  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
-  font-size: 40px;
+  font-family: 'Open Sans Condensed', Arial, Helvetica, sans-serif;
+  font-size: 20px;
   color: #fff;
 }
 

@@ -1,0 +1,43 @@
+$border-color: #666;
+$highlight-color: #F3A016;
+$border-width: 2px;
+
+%question-item {
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  border: $border-width solid $border-color;
+  border-radius: 30px;
+  background-color: #000000;
+  background-image: linear-gradient(to bottom, rgba(76,80,84,1) 0%, rgba(0,0,0,1) 45%, rgba(0,0,0,1) 100%);
+  color: #fff;
+}
+
+%stick {
+  position: absolute;
+  top: 50%;
+  width: 500%;
+  height: $border-width;
+  margin-top: -$border-width;
+  background-color: $border-color;
+  content: '';
+}
+
+%left-stick {
+  @extend %stick;
+  right: 100%;
+}
+
+%right-stick {
+  @extend %stick;
+  left: 100%;
+}
+
+%clearfix {
+  &:after {
+    display: block;
+    clear: both;
+    content: '';
+  }
+}
