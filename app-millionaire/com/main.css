@@ -31,11 +31,11 @@ table {
 
 .layout-millionaire-logo {
   position: absolute;
-  top: 80px;
+  top: 50px;
   left: 0;
   right: 0;
   margin: 0 auto;
-  width: 500px; }
+  width: 420px; }
 
 .question-text, .question-bar-answers-item {
   display: block;
@@ -73,7 +73,7 @@ table {
   overflow-x: hidden;
   left: 0;
   right: 0;
-  bottom: 40px;
+  bottom: 15px;
   padding: 0 30px; }
 
 .question-text {
