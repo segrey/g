@@ -81,7 +81,7 @@ table {
   padding: 15px;
   margin-left: auto;
   margin-right: auto;
-  font-size: 30px;
+  font-size: 33px;
   text-align: center; }
   .question-text:before {
     height: 3px; }
@@ -98,6 +98,7 @@ table {
 
 .question-bar-answers-item {
   width: 49%;
+  font-size: 25px;
   padding: 10px 17px; }
   .question-bar-answers-item:nth-child(odd) {
     float: left; }
