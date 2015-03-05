@@ -2,14 +2,22 @@
   var componentPath = 'app-millionaire/com/layout';
 
   var Layout = React.createClass({
+    getInitialState: function () {
+      return {
+        currentQuestionIndex: 0
+      }
+    },
+
     render: function () {
       var questions = this.props.questions;
-      console.log(questions);
+      var currentQuestionIndex = this.state.currentQuestionIndex;
+      var currentQuestion = questions[currentQuestionIndex];
 
       return (
         <div className="layout">
           <NerdTvLogo />
           <MillionaireLogo />
+          <QuestionBar question={currentQuestion} />
         </div>
       )
     }
@@ -32,6 +40,5 @@
   });
 
   _exports.Layout = Layout;
-  _exports.LayoutLogo = NerdTvLogo;
 
 })(window);
