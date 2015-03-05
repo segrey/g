@@ -17,14 +17,14 @@
             <div className="text">{question.text}</div>
           </div>
 
-          <QuestionBarAnswers question={question} />
+          <AnswersBar question={question} />
         </div>
       )
     }
   });
 
 
-  var QuestionBarAnswers = React.createClass({
+  var AnswersBar = React.createClass({
     getDefaultProps: function () {
       return {
         question: null
@@ -39,7 +39,7 @@
       return (
         <div className="question-bar-answers">
           {answers.map(function (answer) {
-            return <QuestionBarAnswersItem answer={answer} />
+            return <AnswersBarItem answer={answer} />
           })}
         </div>
       )
@@ -47,7 +47,7 @@
   });
 
 
-  var QuestionBarAnswersItem = React.createClass({
+  var AnswersBarItem = React.createClass({
     getDefaultProps: function () {
       return {
         answer: null
