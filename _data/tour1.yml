@@ -18,3 +18,22 @@
 
     - price: 500
       text: Фермент "люциферазу" выделяют чаще всего из этих насекомых.
+
+
+- id: protein2
+  title: Капча
+  questions:
+    - price: 150
+      text: ЛАЛАЛАЛАЛ
+
+    - price: 300
+      text: ТРАЛАЛАЛАЛ
+
+    - price: 450
+      text: ТУТУТУТ
+
+    - price: 600
+      text: СЮСЮСЮСЮ
+
+    - price: 750
+      text: WAT???
