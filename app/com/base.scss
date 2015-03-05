@@ -1,0 +1,22 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
+  font-size: 40px;
+  color: #fff;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+  //background-color: rgb(43,155,229);
+  background-image: radial-gradient(ellipse at center,  rgba(43,155,229,1) 0%, rgba(42,91,224,1) 30%, rgba(0,0,0,1) 100%);
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
