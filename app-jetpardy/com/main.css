@@ -20,6 +20,9 @@ table {
 @-webkit-keyframes cell-blink {
   to {
     background: #fff; } }
+@keyframes cell-blink {
+  to {
+    background: #fff; } }
 .board-table {
   width: 100%;
   height: 100%;
@@ -51,7 +54,11 @@ table {
         -webkit-animation-name: cell-blink;
         -webkit-animation-duration: 150ms;
         -webkit-animation-delay: 50ms;
-        -webkit-animation-iteration-count: 2; }
+        -webkit-animation-iteration-count: 2;
+        animation-name: cell-blink;
+        animation-duration: 150ms;
+        animation-delay: 50ms;
+        animation-iteration-count: 2; }
       .board-table td.question-cell.answered .question-price {
         opacity: 0; }
   .board-table tr:first-child td {
