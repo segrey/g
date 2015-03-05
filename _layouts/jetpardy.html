@@ -1,0 +1,23 @@
+{% assign app = 'jetpardy' %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="app-{{app}}/com/main.css"/>
+
+  <script src="lib/react.js"></script>
+  <script src="lib/JSXTransformer.js"></script>
+
+  <script src="app-{{app}}/app.js"></script>
+  <script src="app-{{app}}/com/board-table/board-table.jsx" type="text/jsx"></script>
+  <script src="app-{{app}}/com/question/question.jsx" type="text/jsx"></script>
+</head>
+<body>
+
+{{ content }}
+
+<script type="text/jsx" charset="UTF-8">
+app.run(DATA);
+</script>
+</body>
+</html>
