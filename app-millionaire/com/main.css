@@ -1,0 +1,34 @@
+* {
+  padding: 0;
+  margin: 0; }
+
+html, body {
+  height: 100%; }
+
+body {
+  background-color: #000;
+  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
+  font-size: 40px;
+  color: #fff; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.layout {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url("layout/bg.jpg") no-repeat 50% 50%/cover; }
+
+.layout-nerdtv-logo {
+  position: absolute;
+  top: 30px;
+  width: 200px; }
+
+.layout-millionaire-logo {
+  position: absolute;
+  left: 100px;
+  width: 500px; }
