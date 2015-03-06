@@ -5,7 +5,7 @@
     getDefaultProps: function () {
       return {
         question: null,
-        hide: 0
+        hide: false
       }
     },
 

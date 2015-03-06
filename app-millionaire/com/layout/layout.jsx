@@ -6,7 +6,7 @@
       return {
         questions: null,
         currentQuestion: null,
-        hideQuestionBlock: false,
+        hideQuestionBlock: true,
         showInfo: false,
         infoText: '',
         infoMode: null
