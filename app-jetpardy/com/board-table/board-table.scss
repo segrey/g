@@ -48,8 +48,8 @@
         animation-iteration-count: 3;
 
         .question-price {
-          -webkit-transform: scale(6);
-          transform: scale(6);
+          //-webkit-transform: scale(6) !important;
+          transform: scale(6) !important;
           color: #fff;
           text-shadow: 2px 2px 0 #000;
         }
@@ -57,7 +57,8 @@
 
       .question-price {
         transition: -webkit-transform 600ms;
-        transition: transform 600ms;
+        -webkit-transform: scale(1);
+        transform: scale(0.5);
       }
 
       &.answered .question-price {
