@@ -27,8 +27,8 @@
 
     &.theme-cell {
       width: 5%;
+      font-size: 40px;
       text-align: center;
-      text-transform: uppercase;
     }
 
     &.question-cell {
@@ -46,6 +46,18 @@
         animation-duration: 150ms;
         animation-delay: 50ms;
         animation-iteration-count: 3;
+
+        .question-price {
+          -webkit-transform: scale(6);
+          transform: scale(6);
+          color: #fff;
+          text-shadow: 2px 2px 0 #000;
+        }
+      }
+
+      .question-price {
+        transition: -webkit-transform 600ms;
+        transition: transform 600ms;
       }
 
       &.answered .question-price {
