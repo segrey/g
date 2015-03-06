@@ -43,8 +43,8 @@ table {
       border-right-width: 0; }
     .board-table td.theme-cell {
       width: 5%;
-      text-align: center;
-      text-transform: uppercase; }
+      font-size: 40px;
+      text-align: center; }
     .board-table td.question-cell {
       color: #fff87b;
       text-align: center; }
@@ -59,6 +59,14 @@ table {
         animation-duration: 150ms;
         animation-delay: 50ms;
         animation-iteration-count: 3; }
+        .board-table td.question-cell.selected .question-price {
+          -webkit-transform: scale(6);
+          transform: scale(6);
+          color: #fff;
+          text-shadow: 2px 2px 0 #000; }
+      .board-table td.question-cell .question-price {
+        transition: -webkit-transform 600ms;
+        transition: transform 600ms; }
       .board-table td.question-cell.answered .question-price {
         opacity: 0; }
   .board-table tr:first-child td {
