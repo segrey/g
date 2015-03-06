@@ -4,20 +4,29 @@
   var QuestionBar = React.createClass({
     getDefaultProps: function () {
       return {
-        question: null
+        question: null,
+        hide: 0
       }
     },
 
     render: function () {
       var question = this.props.question;
 
+      var className = [
+        'question-bar',
+        this.props.hide ? 'hide' : void 0
+      ].join(' ');
+
       return (
-        <div className="question-bar">
+        <div className={className}>
           <div className="question-text">
             <div className="text">{question.text}</div>
           </div>
 
-          <AnswersBar question={question} />
+          <AnswersBar
+            answers={question.answers}
+            correct={question.correct}
+          />
         </div>
       )
     }
@@ -50,32 +59,39 @@
 
         if (isSelected) {
           that.setState({selectedIndex: index});
+          app.currentQuestionState = app.QUESTION_STATE.WAS_SELECTED;
         }
       });
 
+      // Double click
       if (index == this.state.selectedIndex) {
         this.handleAnswerSubmit(index);
+        this.setState({selectedIndex: null});
+        app.currentQuestionState = app.QUESTION_STATE.WAS_ANSWERED;
       }
     },
 
     // checking for correct answer
     handleAnswerSubmit: function (selectedIndex) {
-      var question = this.props.question;
-      var correctAnswerId = question.correct;
-      var selectedAnswer = question.answers[selectedIndex];
+      var scoreEarned = 0;
+      var answers = this.props.answers;
+      var correctAnswerId = this.props.correct;
+      var selectedAnswer = answers[selectedIndex];
       var selectedAnswerId = Object.keys(selectedAnswer)[0];
       var isCorrect = correctAnswerId == selectedAnswerId;
       var correctAnswerIndex;
-      question.answers.forEach(function (answer, i) {
+      answers.forEach(function (answer, i) {
           var answerId = Object.keys(answer)[0];
           if (answerId === correctAnswerId)
             correctAnswerIndex = i;
       });
 
-      console.log(correctAnswerIndex);
-
       if (isCorrect) {
         this.refs[selectedIndex].setState({correct: true});
+        scoreEarned = app.scores[app.currentQuestionIndex];
+        app.totalScore += scoreEarned;
+        app.nextQuestion();
+
       } else {
         this.refs[correctAnswerIndex].setState({correct: true});
         this.refs[selectedIndex].setState({correct: false});
@@ -84,16 +100,15 @@
 
     render: function () {
       var that = this;
-      var question = this.props.question;
-      var answers = question.answers;
-      var correctAnswerId = question.correct;
+      var answers = this.props.answers;
 
       return (
         <div className="question-bar-answers">
           {answers.map(function (answer, i) {
+            var uid = app.currentQuestionIndex + '.' + i;
             return <AnswersBarItem
               answer={answer}
-              key={i}
+              key={uid}
               ref={i}
               id={i}
               onClick={that.handleAnswerSelect.bind(null, i)}
@@ -113,13 +128,6 @@
       }
     },
 
-    getDefaultProps: function () {
-      return {
-        answer: null,
-        selected: false
-      }
-    },
-
     render: function () {
       var answer = this.props.answer;
       var answerId = Object.keys(answer)[0];
@@ -135,7 +143,7 @@
 
 
       return (
-        <a className={className} onClick={this.props.onClick}>
+        <a className={className} onClick={this.props.onClick} onTouchEnd={this.props.onClick}>
           <span className="inner">
             <span className="answer-id">{answerId}: </span>
             <span className="answer-text">{answerText}</span>

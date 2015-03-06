@@ -3,11 +3,17 @@
 
   app.QUESTION_STATE = {
     BLANK: 0,
-    QUESTION: 1,
-    QUESTION_WITH_ANSWERS: 2
+    WAS_DISPLAYED: 1,
+    WAS_DISPLAYED_WITH_ANSWERS: 2,
+    WAS_SELECTED: 3,
+    WAS_ANSWERED: 4
   };
 
-  app.questions = {};
+  app.questions = null;
+
+  app.scores = null;
+
+  app.totalScore = 0;
 
   app.currentQuestion = null;
 
@@ -16,6 +22,20 @@
   app.currentQuestionState = app.QUESTION_STATE.BLANK;
 
   app.view = null;
+
+  app.nextQuestion = function () {
+    setTimeout(function () {
+      console.log(app.totalScore);
+      app.view.setProps({hideQuestionBlock: true});
+
+      setTimeout(function () {
+        app.currentQuestion = app.questions[app.currentQuestionIndex + 1];
+        app.currentQuestionIndex++;
+        app.view.setProps({hideQuestionBlock: false});
+        app.view.setProps({currentQuestion: app.currentQuestion});
+      }, 500);
+    }, 500);
+  };
 
   app.run = function (data) {
     app.questions = data.questions;

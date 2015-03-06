@@ -5,7 +5,8 @@
     getDefaultProps: function () {
       return {
         questions: null,
-        currentQuestion: null
+        currentQuestion: null,
+        hideQuestionBlock: false
       }
     },
 
@@ -16,7 +17,7 @@
         <div className="layout">
           <NerdTvLogo />
           <MillionaireLogo />
-          <QuestionBar question={currentQuestion} />
+          <QuestionBar question={currentQuestion} hide={this.props.hideQuestionBlock} />
         </div>
       )
     }

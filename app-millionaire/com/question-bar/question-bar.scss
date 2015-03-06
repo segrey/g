@@ -11,6 +11,12 @@ $questions-gutter: 30px;
   right: 0;
   bottom: 0;
   padding: 0 30px 15px;
+
+  transition: -webkit-transform 400ms;
+
+  &.hide {
+    -webkit-transform: translateY(400px);
+  }
 }
 
 .question-text {
