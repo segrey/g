@@ -213,7 +213,7 @@ table {
   padding-bottom: 15px;
   text-align: center;
   transition-delay: 0;
-  transition-duration: 500ms;
+  transition-duration: 300ms;
   transition-property: -webkit-transform;
   -webkit-transform: translateX(0);
   transform: translateX(0); }

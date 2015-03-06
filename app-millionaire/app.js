@@ -13,6 +13,8 @@
 
   app.scores = null;
 
+  app.milestones = null;
+
   app.totalScore = 0;
 
   app.currentQuestion = null;
@@ -22,6 +24,21 @@
   app.currentQuestionState = app.QUESTION_STATE.BLANK;
 
   app.view = null;
+
+  app.run = function (data) {
+    app.questions = data.questions;
+    app.scores = data.scores;
+    app.currentQuestion = app.questions[app.currentQuestionIndex];
+
+    React.initializeTouchEvents(true);
+
+    var view = React.createFactory(Layout)({
+      questions: app.questions,
+      currentQuestion: app.currentQuestion
+    });
+
+    app.view = React.render(view, document.body);
+  };
 
   app.nextQuestion = function () {
     setTimeout(function () {
@@ -48,21 +65,6 @@
       }, 1500);
 
     }, 1000);
-  };
-
-  app.run = function (data) {
-    app.questions = data.questions;
-    app.scores = data.scores;
-    app.currentQuestion = app.questions[app.currentQuestionIndex];
-
-    React.initializeTouchEvents(true);
-
-    var view = React.createFactory(Layout)({
-      questions: app.questions,
-      currentQuestion: app.currentQuestion
-    });
-
-    app.view = React.render(view, document.body);
   };
 
   _ctx.app = app;
