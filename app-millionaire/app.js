@@ -1,31 +1,32 @@
 (function(_ctx) {
   var app = {};
 
-  React.initializeTouchEvents(true);
+  app.questions = {};
 
-  app.data = {};
+  app.currentQuestion = null;
 
-  app.run = function (data) {
-    this.data = data;
+  app.currentQuestionIndex = 0;
 
-    this.doAction('board');
+  app.QUESTION_STATE = {
+    BLANK: 0,
+    QUESTION: 1,
+    QUESTION_WITH_ANSWERS: 2
   };
 
-  app.render = function (component, context, target) {
-    var factory = React.createFactory(component);
-    var target = target || document.body;
+  app.view = null;
 
-    React.render(factory(context), target);
-  };
+  app.run = function (questions) {
+    app.questions = questions;
+    app.currentQuestion = app.questions[app.currentQuestionIndex];
 
-  app.doAction = function (action, data) {
-    app.actions[action].call(this, data);
-  };
+    React.initializeTouchEvents(true);
 
-  app.actions = {
-    board: function () {
-      app.render(Layout, {questions: app.data});
-    }
+    var view = React.createFactory(Layout)({
+      questions: app.questions,
+      currentQuestion: app.currentQuestion
+    });
+
+    app.view = React.render(view, document.body);
   };
 
   _ctx.app = app;
