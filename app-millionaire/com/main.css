@@ -76,6 +76,16 @@ table {
   clear: both;
   content: ''; }
 
+.question-bar-answers-item.correct, .question-bar-answers-item.incorrect {
+  -webkit-animation-name: blink;
+  -webkit-animation-duration: 150ms;
+  -webkit-animation-delay: 25ms;
+  -webkit-animation-iteration-count: 2;
+  animation-name: blink;
+  animation-duration: 150ms;
+  animation-delay: 25ms;
+  animation-iteration-count: 2; }
+
 .question-bar {
   position: absolute;
   overflow-x: hidden;
@@ -83,7 +93,8 @@ table {
   right: 0;
   bottom: 0;
   padding: 0 30px 15px;
-  transition: -webkit-transform 400ms; }
+  transition: -webkit-transform 400ms;
+  -webkit-transform: translateY(0); }
   .question-bar.hide {
     -webkit-transform: translateY(400px); }
 
@@ -124,15 +135,15 @@ table {
   .question-bar-answers-item.correct {
     color: #fff;
     border-color: #fff;
-    background-color: #168000;
-    background-image: none;
+    background-color: #000;
+    background-image: linear-gradient(to bottom, #35ee25 0%, #52f900 41%, #27bc00 100%);
     text-shadow: none; }
     .question-bar-answers-item.correct .answer-id {
       color: #fff; }
   .question-bar-answers-item.incorrect {
     color: #fff;
-    background-color: #b72900;
-    background-image: none;
+    background-color: #000;
+    background-image: linear-gradient(to bottom, #f74040 0%, #e60000 41%, #d30000 100%);
     text-shadow: none; }
     .question-bar-answers-item.incorrect .answer-id {
       color: #fff; }
@@ -144,3 +155,10 @@ table {
       display: none; }
   .question-bar-answers-item .answer-id {
     color: #f3a016; }
+
+@-webkit-keyframes blink {
+  to {
+    background-image: none; } }
+@keyframes blink {
+  to {
+    background-image: none; } }

@@ -43,3 +43,14 @@ $border-width: 2px;
     content: '';
   }
 }
+
+%blink-animation {
+  -webkit-animation-name: blink;
+  -webkit-animation-duration: 150ms;
+  -webkit-animation-delay: 25ms;
+  -webkit-animation-iteration-count: 2;
+  animation-name: blink;
+  animation-duration: 150ms;
+  animation-delay: 25ms;
+  animation-iteration-count: 2;
+}

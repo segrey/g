@@ -13,6 +13,7 @@ $questions-gutter: 30px;
   padding: 0 30px 15px;
 
   transition: -webkit-transform 400ms;
+  -webkit-transform: translateY(0);
 
   &.hide {
     -webkit-transform: translateY(400px);
@@ -80,10 +81,11 @@ $questions-gutter: 30px;
   }
 
   &.correct {
+    @extend %blink-animation;
     color: #fff;
     border-color: #fff;
-    background-color: #168000;
-    background-image: none;
+    background-color: #000;
+    background-image: linear-gradient(to bottom,  rgb(53, 238, 37) 0%, rgb(82, 249, 0) 41%, rgb(39, 188, 0) 100%);
     text-shadow: none;
 
     .answer-id {
@@ -92,9 +94,10 @@ $questions-gutter: 30px;
   }
 
   &.incorrect {
+    @extend %blink-animation;
     color: #fff;
-    background-color: #b72900;
-    background-image: none;
+    background-color: #000;
+    background-image: linear-gradient(to bottom,  rgb(247, 64, 64) 0%, rgb(230, 0, 0) 41%, rgb(211, 0, 0) 100%);
     text-shadow: none;
 
     .answer-id {
@@ -133,4 +136,13 @@ $questions-gutter: 30px;
 
   &.selected .answer-text {
   }
+}
+
+
+@-webkit-keyframes blink {
+  to {background-image: none;}
+}
+
+@keyframes blink {
+  to {background-image: none;}
 }

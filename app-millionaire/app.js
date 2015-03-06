@@ -25,7 +25,6 @@
 
   app.nextQuestion = function () {
     setTimeout(function () {
-      console.log(app.totalScore);
       app.view.setProps({hideQuestionBlock: true});
 
       setTimeout(function () {
@@ -33,6 +32,7 @@
         app.currentQuestionIndex++;
         app.view.setProps({hideQuestionBlock: false});
         app.view.setProps({currentQuestion: app.currentQuestion});
+        app.currentQuestionState = app.QUESTION_STATE.WAS_DISPLAYED;
       }, 500);
     }, 500);
   };
