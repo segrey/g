@@ -92,7 +92,7 @@
         app.currentQuestionState = app.QUESTION_STATE.WAS_ANSWERED;
         this.refs[selectedIndex].setState({correct: true});
         scoreEarned = app.scores[app.currentQuestionIndex];
-        app.totalScore += scoreEarned;
+        app.totalScore = app.scores[app.currentQuestionIndex];
         app.nextQuestion();
 
       } else {
