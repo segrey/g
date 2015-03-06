@@ -20,7 +20,7 @@
       return (
         <div className={className}>
           <div className="question-text">
-            <div className="text">{question.text}</div>
+            <div className="text">{app.currentQuestionIndex + 1}. {question.text}</div>
           </div>
 
           <AnswersBar
