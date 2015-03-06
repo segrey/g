@@ -23,8 +23,8 @@
           break;
 
         case STATE.WAS_ANSWERED_FAILED:
-          app.currentQuestionIndex = 0;
-          app.currentQuestion = app.questions[0];
+          app.currentQuestionIndex = app.currentQuestionIndex - 1;
+          app.currentQuestion = app.questions[app.currentQuestionIndex];
           app.currentQuestionState = app.QUESTION_STATE.BLANK;
 
           app.view.setProps({
