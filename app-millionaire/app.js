@@ -17,8 +17,9 @@
 
   app.view = null;
 
-  app.run = function (questions) {
-    app.questions = questions;
+  app.run = function (data) {
+    app.questions = data.questions;
+    app.scores = data.scores;
     app.currentQuestion = app.questions[app.currentQuestionIndex];
 
     React.initializeTouchEvents(true);

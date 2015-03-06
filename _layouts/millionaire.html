@@ -22,7 +22,10 @@
 {{ content }}
 
 <script type="text/jsx" charset="UTF-8">
-app.run(DATA);
+app.run({
+  questions: DATA,
+  scores: {{ site.data['millionaire-scores'] | jsonify }}
+});
 </script>
 </body>
 </html>
