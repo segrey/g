@@ -6,7 +6,8 @@
     WAS_DISPLAYED: 1,
     WAS_DISPLAYED_WITH_ANSWERS: 2,
     WAS_SELECTED: 3,
-    WAS_ANSWERED: 4
+    WAS_ANSWERED: 4,
+    WAS_ANSWERED_FAILED: 5
   };
 
   app.questions = null;
@@ -46,7 +47,8 @@
 
       app.view.setProps({
         showInfo: true,
-        infoText: app.totalScore
+        infoText: app.totalScore,
+        infoMode: 'simple'
       });
 
       setTimeout(function () {

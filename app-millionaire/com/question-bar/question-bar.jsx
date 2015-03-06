@@ -52,7 +52,7 @@
       var keys = Object.keys(this.refs);
       var selectedAnswer = this.refs[index];
 
-      if (app.currentQuestionState == app.QUESTION_STATE.WAS_ANSWERED)
+      if (app.currentQuestionState == app.QUESTION_STATE.WAS_ANSWERED || app.currentQuestionState == app.QUESTION_STATE.WAS_ANSWERED_FAILED)
         return;
 
       keys.forEach(function (id) {
@@ -70,7 +70,6 @@
       if (index == this.state.selectedIndex) {
         this.handleAnswerSubmit(index);
         this.setState({selectedIndex: null});
-        app.currentQuestionState = app.QUESTION_STATE.WAS_ANSWERED;
       }
     },
 
@@ -90,6 +89,7 @@
       });
 
       if (isCorrect) {
+        app.currentQuestionState = app.QUESTION_STATE.WAS_ANSWERED;
         this.refs[selectedIndex].setState({correct: true});
         scoreEarned = app.scores[app.currentQuestionIndex];
         app.totalScore += scoreEarned;
@@ -98,6 +98,7 @@
       } else {
         this.refs[correctAnswerIndex].setState({correct: true});
         this.refs[selectedIndex].setState({correct: false});
+        app.currentQuestionState = app.QUESTION_STATE.WAS_ANSWERED_FAILED;
 
         if (app.currentQuestionIndex + 1 >= 5 && app.currentQuestionIndex <= 10)
           app.totalScore = app.scores[4];
@@ -153,6 +154,7 @@
       var answerText = answer[answerId];
       var isSelected = this.state.selected;
       var isCorrect = this.state.correct;
+      var isError = app.currentQuestionState == app.QUESTION_STATE.WAS_ANSWERED_FAILED;
 
       var className = [
         'question-bar-answers-item',
@@ -160,6 +162,7 @@
         isCorrect !== null ? (isCorrect ? 'correct' : 'incorrect') : void 0
       ].join(' ');
 
+      console.log(app.currentQuestionState);
 
       return (
         <a className={className} onClick={this.props.onClick} onTouchEnd={this.props.onClick}>

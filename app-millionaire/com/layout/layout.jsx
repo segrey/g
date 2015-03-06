@@ -14,8 +14,27 @@
     },
 
     handleClick: function () {
-      if (app.currentQuestionState == app.QUESTION_STATE.BLANK)
-        this.setProps({hideQuestionBlock: false});
+      var STATE = app.QUESTION_STATE;
+
+      switch (app.currentQuestionState) {
+        case STATE.BLANK:
+          app.currentQuestionState = app.QUESTION_STATE.WAS_DISPLAYED;
+          this.setProps({hideQuestionBlock: false});
+          break;
+
+        case STATE.WAS_ANSWERED_FAILED:
+          app.currentQuestionIndex = 0;
+          app.currentQuestion = app.questions[0];
+          app.currentQuestionState = app.QUESTION_STATE.BLANK;
+
+          app.view.setProps({
+            currentQuestion: app.currentQuestion,
+            hideQuestionBlock: false,
+            showInfo: false
+          });
+          app.view.forceUpdate();
+          break;
+      }
     },
 
     render: function () {
@@ -32,7 +51,6 @@
           <Info text={infoText} hidden={!showInfo} mode={infoMode} />
         </div>
       );
-      //
     }
   });
 

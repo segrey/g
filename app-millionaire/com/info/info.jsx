@@ -15,7 +15,7 @@
       var hidden = this.props.hidden;
       var className = [
         'info',
-        mode ? 'mode_' + mode : void 0,
+        'mode_' + mode,
         hidden ? '_hidden' : '_visible'
       ].join(' ');
 
