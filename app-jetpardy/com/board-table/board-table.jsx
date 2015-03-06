@@ -3,8 +3,6 @@ var BoardTable = React.createClass({
     var that = this;
     var themes = this.props.themes;
 
-    console.log(this.props);
-
     return (
       <table className="board-table">
         {themes.map(function (theme) {

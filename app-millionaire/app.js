@@ -13,6 +13,8 @@
 
   app.scores = null;
 
+  app.milestones = null;
+
   app.totalScore = 0;
 
   app.currentQuestion = null;
@@ -22,20 +24,6 @@
   app.currentQuestionState = app.QUESTION_STATE.BLANK;
 
   app.view = null;
-
-  app.nextQuestion = function () {
-    setTimeout(function () {
-      console.log(app.totalScore);
-      app.view.setProps({hideQuestionBlock: true});
-
-      setTimeout(function () {
-        app.currentQuestion = app.questions[app.currentQuestionIndex + 1];
-        app.currentQuestionIndex++;
-        app.view.setProps({hideQuestionBlock: false});
-        app.view.setProps({currentQuestion: app.currentQuestion});
-      }, 500);
-    }, 500);
-  };
 
   app.run = function (data) {
     app.questions = data.questions;
@@ -50,6 +38,33 @@
     });
 
     app.view = React.render(view, document.body);
+  };
+
+  app.nextQuestion = function () {
+    setTimeout(function () {
+      app.view.setProps({hideQuestionBlock: true});
+
+      app.view.setProps({
+        showInfo: true,
+        infoText: app.totalScore
+      });
+
+      setTimeout(function () {
+        setTimeout(function () {
+          app.currentQuestion = app.questions[app.currentQuestionIndex + 1];
+          app.currentQuestionIndex++;
+          app.currentQuestionState = app.QUESTION_STATE.WAS_DISPLAYED;
+
+          app.view.setProps({
+            currentQuestion: app.currentQuestion,
+            hideQuestionBlock: false,
+            showInfo: false
+          });
+        }, 500);
+
+      }, 1500);
+
+    }, 1000);
   };
 
   _ctx.app = app;

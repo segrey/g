@@ -98,6 +98,22 @@
       } else {
         this.refs[correctAnswerIndex].setState({correct: true});
         this.refs[selectedIndex].setState({correct: false});
+
+        if (app.currentQuestionIndex + 1 >= 5 && app.currentQuestionIndex <= 10)
+          app.totalScore = app.scores[4];
+        else if (app.currentQuestionIndex + 1 >= 10 && app.currentQuestionIndex <= 15)
+          app.totalScore = app.scores[9];
+        else
+          app.totalScore = 0;
+
+        setTimeout(function () {
+          app.view.setProps({
+            hideQuestionBlock: true,
+            showInfo: true,
+            infoText: app.totalScore,
+            infoMode: 'fail'
+          });
+        }, 1000);
       }
     },
 

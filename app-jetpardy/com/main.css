@@ -54,11 +54,11 @@ table {
         -webkit-animation-name: cell-blink;
         -webkit-animation-duration: 150ms;
         -webkit-animation-delay: 50ms;
-        -webkit-animation-iteration-count: 2;
+        -webkit-animation-iteration-count: 3;
         animation-name: cell-blink;
         animation-duration: 150ms;
         animation-delay: 50ms;
-        animation-iteration-count: 2; }
+        animation-iteration-count: 3; }
       .board-table td.question-cell.answered .question-price {
         opacity: 0; }
   .board-table tr:first-child td {
