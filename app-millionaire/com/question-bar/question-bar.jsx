@@ -52,6 +52,9 @@
       var keys = Object.keys(this.refs);
       var selectedAnswer = this.refs[index];
 
+      if (app.currentQuestionState == app.QUESTION_STATE.WAS_ANSWERED)
+        return;
+
       keys.forEach(function (id) {
         var answer = refs[id];
         var isSelected = selectedAnswer === answer;
