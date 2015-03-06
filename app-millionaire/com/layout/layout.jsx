@@ -6,7 +6,10 @@
       return {
         questions: null,
         currentQuestion: null,
-        hideQuestionBlock: false
+        hideQuestionBlock: false,
+        showInfo: false,
+        infoText: '',
+        infoMode: null
       }
     },
 
@@ -17,14 +20,19 @@
 
     render: function () {
       var currentQuestion = this.props.currentQuestion;
+      var showInfo = this.props.showInfo;
+      var infoText = this.props.infoText;
+      var infoMode = this.props.infoMode;
 
       return (
         <div className="layout">
           <NerdTvLogo />
           <MillionaireLogo onClick={this.handleClick} onTouchEnd={this.handleClick} />
           <QuestionBar question={currentQuestion} hide={this.props.hideQuestionBlock} />
+          <Info text={infoText} hidden={!showInfo} mode={infoMode} />
         </div>
-      )
+      );
+      //
     }
   });
 

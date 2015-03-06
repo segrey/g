@@ -98,6 +98,15 @@
       } else {
         this.refs[correctAnswerIndex].setState({correct: true});
         this.refs[selectedIndex].setState({correct: false});
+
+        setTimeout(function () {
+          app.view.setProps({
+            hideQuestionBlock: true,
+            showInfo: true,
+            infoText: app.totalScore,
+            infoMode: 'fail'
+          });
+        }, 1000);
       }
     },
 

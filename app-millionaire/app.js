@@ -27,14 +27,27 @@
     setTimeout(function () {
       app.view.setProps({hideQuestionBlock: true});
 
+      app.view.setProps({
+        showInfo: true,
+        infoText: app.totalScore
+      });
+
       setTimeout(function () {
-        app.currentQuestion = app.questions[app.currentQuestionIndex + 1];
-        app.currentQuestionIndex++;
-        app.view.setProps({hideQuestionBlock: false});
-        app.view.setProps({currentQuestion: app.currentQuestion});
-        app.currentQuestionState = app.QUESTION_STATE.WAS_DISPLAYED;
-      }, 500);
-    }, 500);
+        setTimeout(function () {
+          app.currentQuestion = app.questions[app.currentQuestionIndex + 1];
+          app.currentQuestionIndex++;
+          app.currentQuestionState = app.QUESTION_STATE.WAS_DISPLAYED;
+
+          app.view.setProps({
+            currentQuestion: app.currentQuestion,
+            hideQuestionBlock: false,
+            showInfo: false
+          });
+        }, 500);
+
+      }, 1500);
+
+    }, 1000);
   };
 
   app.run = function (data) {
