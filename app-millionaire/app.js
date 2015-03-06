@@ -1,17 +1,19 @@
 (function(_ctx) {
   var app = {};
 
+  app.QUESTION_STATE = {
+    BLANK: 0,
+    QUESTION: 1,
+    QUESTION_WITH_ANSWERS: 2
+  };
+
   app.questions = {};
 
   app.currentQuestion = null;
 
   app.currentQuestionIndex = 0;
 
-  app.QUESTION_STATE = {
-    BLANK: 0,
-    QUESTION: 1,
-    QUESTION_WITH_ANSWERS: 2
-  };
+  app.currentQuestionState = app.QUESTION_STATE.BLANK;
 
   app.view = null;
 

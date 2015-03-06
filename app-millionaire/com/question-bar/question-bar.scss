@@ -9,8 +9,8 @@ $questions-gutter: 30px;
   overflow-x: hidden;
   left: 0;
   right: 0;
-  bottom: 15px;
-  padding: 0 30px;
+  bottom: 0;
+  padding: 0 30px 15px;
 }
 
 .question-text {
@@ -19,17 +19,16 @@ $questions-gutter: 30px;
   padding: 15px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 25px;
   font-size: 33px;
   text-align: center;
 
   &:before {
     @extend %left-stick;
-    height: 3px;
   }
 
   &:after {
     @extend %right-stick;
-    height: 3px;
   }
 
   .text {
@@ -52,15 +51,49 @@ $questions-gutter: 30px;
 .question-bar-answers-item {
   @extend %question-item;
   width: 49%;
-  font-size: 25px;
-  padding: 10px 17px;
+  font-size: 27px;
+  padding: 5px 17px 7px;
 
-  &:before {
-    @extend %left-stick;
+  .inner {
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow-x: hidden;
   }
 
-  &:after {
-    @extend %right-stick;
+  &.selected {
+    border-color: #fff;
+    background-color: #EFA423;
+    background-image: linear-gradient(to bottom,  rgba(239,164,35,1) 0%,rgba(247,156,0,1) 41%,rgba(219,102,0,1) 100%);
+    color: #fff;
+    text-shadow: none;
+
+    .answer-id {
+      color: #000;
+    }
+  }
+
+  &.correct {
+    color: #fff;
+    border-color: #fff;
+    background-color: #168000;
+    background-image: none;
+    text-shadow: none;
+
+    .answer-id {
+      color: #fff;
+    }
+  }
+
+  &.incorrect {
+    color: #fff;
+    background-color: #b72900;
+    background-image: none;
+    text-shadow: none;
+
+    .answer-id {
+      color: #fff;
+    }
   }
 
   &:nth-child(odd) {
@@ -75,8 +108,23 @@ $questions-gutter: 30px;
     }
   }
 
+  &:before {
+    @extend %left-stick;
+  }
+
+  &:after {
+    @extend %right-stick;
+  }
+
   .answer-id {
     color: $highlight-color;
   }
+
+  &.selected .answer-id {
+  }
+
   .answer-text {}
+
+  &.selected .answer-text {
+  }
 }

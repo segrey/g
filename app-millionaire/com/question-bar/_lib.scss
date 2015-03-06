@@ -27,11 +27,13 @@ $border-width: 2px;
 %left-stick {
   @extend %stick;
   right: 100%;
+  margin-right: 2px;
 }
 
 %right-stick {
   @extend %stick;
   left: 100%;
+  margin-left: 2px;
 }
 
 %clearfix {

@@ -2,16 +2,15 @@
   var componentPath = 'app-millionaire/com/layout';
 
   var Layout = React.createClass({
-    getInitialState: function () {
+    getDefaultProps: function () {
       return {
-        currentQuestionIndex: 0
+        questions: null,
+        currentQuestion: null
       }
     },
 
     render: function () {
-      var questions = this.props.questions;
-      var currentQuestionIndex = this.state.currentQuestionIndex;
-      var currentQuestion = questions[currentQuestionIndex];
+      var currentQuestion = this.props.currentQuestion;
 
       return (
         <div className="layout">

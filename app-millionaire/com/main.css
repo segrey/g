@@ -22,7 +22,12 @@ table {
   right: 0;
   bottom: 0;
   left: 0;
-  background: url("layout/bg.jpg") no-repeat 50% 50%/cover; }
+  background: url("layout/bg.jpg") no-repeat 50% 50%/cover;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
 
 .layout-nerdtv-logo {
   position: absolute;
@@ -58,10 +63,12 @@ table {
   content: ''; }
 
 .question-text:before, .question-bar-answers-item:before {
-  right: 100%; }
+  right: 100%;
+  margin-right: 2px; }
 
 .question-text:after, .question-bar-answers-item:after {
-  left: 100%; }
+  left: 100%;
+  margin-left: 2px; }
 
 .question-bar-answers:after {
   display: block;
@@ -73,20 +80,17 @@ table {
   overflow-x: hidden;
   left: 0;
   right: 0;
-  bottom: 15px;
-  padding: 0 30px; }
+  bottom: 0;
+  padding: 0 30px 15px; }
 
 .question-text {
   max-width: 960px;
   padding: 15px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 25px;
   font-size: 33px;
   text-align: center; }
-  .question-text:before {
-    height: 3px; }
-  .question-text:after {
-    height: 3px; }
   .question-text .text {
     position: relative;
     display: block; }
@@ -98,8 +102,36 @@ table {
 
 .question-bar-answers-item {
   width: 49%;
-  font-size: 25px;
-  padding: 10px 17px; }
+  font-size: 27px;
+  padding: 5px 17px 7px; }
+  .question-bar-answers-item .inner {
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow-x: hidden; }
+  .question-bar-answers-item.selected {
+    border-color: #fff;
+    background-color: #EFA423;
+    background-image: linear-gradient(to bottom, #efa423 0%, #f79c00 41%, #db6600 100%);
+    color: #fff;
+    text-shadow: none; }
+    .question-bar-answers-item.selected .answer-id {
+      color: #000; }
+  .question-bar-answers-item.correct {
+    color: #fff;
+    border-color: #fff;
+    background-color: #168000;
+    background-image: none;
+    text-shadow: none; }
+    .question-bar-answers-item.correct .answer-id {
+      color: #fff; }
+  .question-bar-answers-item.incorrect {
+    color: #fff;
+    background-color: #b72900;
+    background-image: none;
+    text-shadow: none; }
+    .question-bar-answers-item.incorrect .answer-id {
+      color: #fff; }
   .question-bar-answers-item:nth-child(odd) {
     float: left; }
   .question-bar-answers-item:nth-child(even) {

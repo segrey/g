@@ -5,6 +5,11 @@
   bottom: 0;
   left: 0;
   background: url('layout/bg.jpg') no-repeat 50% 50% / cover;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .layout-nerdtv-logo {
