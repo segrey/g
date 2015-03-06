@@ -57,10 +57,10 @@
   var NerdTvLogo = React.createClass({
     render: function () {
       return (
-        <img
+        <a href="index.html"><img
           src={componentPath + '/nerdtv-logo.svg'}
           className="layout-nerdtv-logo"
-        />
+        /></a>
       )
     }
   });
