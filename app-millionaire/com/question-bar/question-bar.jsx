@@ -98,7 +98,10 @@
       } else {
         this.refs[correctAnswerIndex].setState({correct: true});
         this.refs[selectedIndex].setState({correct: false});
-        app.currentQuestionState = app.QUESTION_STATE.WAS_ANSWERED_FAILED;
+
+        app.nextQuestion();
+
+        /*app.currentQuestionState = app.QUESTION_STATE.WAS_ANSWERED_FAILED;
 
         if (app.currentQuestionIndex + 1 >= 5 && app.currentQuestionIndex <= 10)
           app.totalScore = app.scores[4];
@@ -114,7 +117,7 @@
             infoText: app.totalScore,
             infoMode: 'fail'
           });
-        }, 1000);
+        }, 1000);*/
       }
     },
 

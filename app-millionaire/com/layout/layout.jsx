@@ -45,7 +45,6 @@
 
       return (
         <div className="layout">
-          <NerdTvLogo />
           <MillionaireLogo onClick={this.handleClick} onTouchEnd={this.handleClick} />
           <QuestionBar question={currentQuestion} hide={this.props.hideQuestionBlock} />
           <Info text={infoText} hidden={!showInfo} mode={infoMode} />
