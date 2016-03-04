@@ -23,7 +23,7 @@
         <div className={className}>
           <div className="info-inner">
             <span className="symbol">●</span>
-            {this.props.text}
+            Следующий вопрос хочешь ты
             <span className="symbol">●</span>
           </div>
         </div>

@@ -232,8 +232,8 @@ table {
   display: inline-block;
   margin-right: auto;
   margin-left: auto;
-  width: 400px;
-  font-size: 45px; }
+  width: 700px;
+  font-size: 40px; }
 
 .info.mode_fail .info-inner {
   background-image: linear-gradient(to bottom, #f74040 0%, #e60000 41%, #d30000 100%);
